@@ -1,13 +1,23 @@
 package com.zutjmx.curso.springboot.di.factura.springbootdifactura.models;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Cliente {
+    @Value("${cliente.nombre}")
     private String nombre;
+
+    @Value("${cliente.paterno}")
     private String paterno;
+
+    @Value("${cliente.materno}")
     private String materno;
+
+    @Value("${cliente.rfc}")
     private String rfc;
+
+    @Value("${cliente.nss}")
     private String nss;
 
     public String getNombre() {
