@@ -1,4 +1,4 @@
-package com.zutjmx.curso.springboot.di.factura.springboot_difactura;
+package com.zutjmx.curso.springboot.di.factura.springbootdifactura;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
