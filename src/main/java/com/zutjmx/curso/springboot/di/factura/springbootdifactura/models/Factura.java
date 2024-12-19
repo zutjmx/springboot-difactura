@@ -15,6 +15,7 @@ public class Factura {
     @Value("${factura.descripcion}")
     private String descripcion;
     
+    @Autowired
     private List<Item> items;
     
     public Cliente getCliente() {

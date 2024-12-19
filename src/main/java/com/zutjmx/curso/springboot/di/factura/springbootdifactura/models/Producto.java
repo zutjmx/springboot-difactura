@@ -3,7 +3,14 @@ package com.zutjmx.curso.springboot.di.factura.springbootdifactura.models;
 public class Producto {
     private String nombre;
     private Integer precio;
+
+    public Producto() {
+    }
     
+    public Producto(String nombre, Integer precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
     public String getNombre() {
         return nombre;
     }
