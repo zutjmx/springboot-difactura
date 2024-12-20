@@ -16,9 +16,19 @@ public class DataFaker {
         cliente.setNombre(this.faker.name().firstName());
         cliente.setPaterno(this.faker.name().lastName());
         cliente.setMaterno(this.faker.name().lastName());
-        cliente.setRfc(this.faker.idNumber().ssnValid());
+        cliente.setRfc(this.faker.lorem().characters(18).toUpperCase());
         cliente.setNss(this.faker.idNumber().ssnValid());
         return cliente;
+    }
+
+    public List<Cliente> generaClientes() {
+        int indice = this.faker.number().numberBetween(10, 30);
+        List<Cliente> clientes = new ArrayList<>();
+        for (int i = 0; i < indice; i++) {
+            Cliente cliente = this.generaCliente();
+            clientes.add(cliente);
+        }
+        return clientes;
     }
 
     public Producto generaProducto() {
