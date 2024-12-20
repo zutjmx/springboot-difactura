@@ -24,7 +24,7 @@ public class DataFaker {
     public Producto generaProducto() {
         Producto producto = new Producto(
             this.faker.commerce().productName(),
-            this.faker.number().numberBetween(200, 200)
+            this.faker.number().numberBetween(200, 2000)
         );
         return producto;
     }
