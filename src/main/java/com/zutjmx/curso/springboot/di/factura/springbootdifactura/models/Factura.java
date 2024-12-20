@@ -37,10 +37,15 @@ public class Factura {
         this.items = items;
     }
     public int getTotal() {
-        int total = 0;
+        //Forma canónica para sumar
+        /* int total = 0;
         for (Item item : items) {
             total+=item.getImporte();
-        }
-        return total;
+        } */
+
+        //Usando el api stream
+        return items.stream()
+        .map(item -> item.getImporte())
+        .reduce(0, (suma, importe) -> suma + importe);
     }
 }
