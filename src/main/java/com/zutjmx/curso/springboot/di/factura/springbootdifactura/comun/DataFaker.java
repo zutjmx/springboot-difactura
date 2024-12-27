@@ -53,4 +53,10 @@ public class DataFaker {
         int entero = this.faker.number().numberBetween(5, 10);
         return entero;
     }
+
+    public String generaNombreComercio() {
+        String nombreComercio = this.faker.company().name();
+        return nombreComercio;
+    }
+    
 }

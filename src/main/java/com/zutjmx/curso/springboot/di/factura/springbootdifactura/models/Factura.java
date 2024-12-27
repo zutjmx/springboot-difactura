@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.zutjmx.curso.springboot.di.factura.springbootdifactura.comun.DataFaker;
+
+import jakarta.annotation.PostConstruct;
+
 @Component
 public class Factura {
 
@@ -17,6 +21,26 @@ public class Factura {
     
     @Autowired
     private List<Item> items;
+
+    public Factura() {
+        System.out.println("Factura.Factura()");
+        System.out.println("Pasando por el constructor de Factura");
+        System.out.println("cliente = " + cliente);
+        System.out.println("descripcion = " + descripcion);
+    }
+
+    @PostConstruct
+    public void init() {
+        DataFaker dataFaker = new DataFaker();
+        cliente = dataFaker.generaCliente();
+        descripcion = dataFaker.generaNombreComercio();
+        System.out.println("nombre: " + cliente.getNombre());
+        System.out.println("paterno: " + cliente.getPaterno());
+        System.out.println("materno: " + cliente.getMaterno());
+        System.out.println("rfc: " + cliente.getRfc());
+        System.out.println("nss: " + cliente.getNss());
+        System.out.println("descripcion: " + descripcion);
+    }
     
     public Cliente getCliente() {
         return cliente;
