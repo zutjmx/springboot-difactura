@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.zutjmx.curso.springboot.di.factura.springbootdifactura.comun.DataFaker;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 @Component
 public class Factura {
@@ -40,6 +41,12 @@ public class Factura {
         System.out.println("rfc: " + cliente.getRfc());
         System.out.println("nss: " + cliente.getNss());
         System.out.println("descripcion: " + descripcion);
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Factura.destruir()");
+        System.out.println("Factura destruida: " + this);
     }
     
     public Cliente getCliente() {
