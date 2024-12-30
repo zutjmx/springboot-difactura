@@ -5,13 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
+// import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.zutjmx.curso.springboot.di.factura.springbootdifactura.comun.DataFaker;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
 @Component
+@RequestScope
+// @JsonIgnoreProperties({"targetSource","advisors"})
 public class Factura {
 
     @Autowired
@@ -34,7 +38,7 @@ public class Factura {
     public void init() {
         DataFaker dataFaker = new DataFaker();
         cliente = dataFaker.generaCliente();
-        descripcion = dataFaker.generaNombreComercio();
+        descripcion = "Factura para: ".concat(dataFaker.generaNombreComercio());
         System.out.println("nombre: " + cliente.getNombre());
         System.out.println("paterno: " + cliente.getPaterno());
         System.out.println("materno: " + cliente.getMaterno());

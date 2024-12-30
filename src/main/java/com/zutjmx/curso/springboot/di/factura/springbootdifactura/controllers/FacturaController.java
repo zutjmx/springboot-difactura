@@ -16,7 +16,11 @@ public class FacturaController {
 
     @GetMapping("/muestra")
     public Factura muestra() {
-        return factura;
+        Factura f = new Factura();
+        f.setCliente(factura.getCliente());
+        f.setDescripcion(factura.getDescripcion());
+        f.setItems(factura.getItems());
+        return f;
     }
     
 }
